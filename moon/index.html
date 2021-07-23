@@ -88,19 +88,34 @@
         </script>
         <source src="mp3.mp3" type="audio/mpeg">
     </audio>
-    <script>
-        /* you can pass in options here */
-        screen.orientation.lock('landscape');
-
-    </script>
 </head>
 
-<body>
+
+<body id="myvideo">
 
     <div id='bottom'>
         <div id='bottom-left'>
             <div id='bottom-left-control' class='rc-panel' data-panel='main'>
+                <div id="element">
+                    <button onclick="openFullscreen()" style="text-align: right; margin-top: 10px;" id="p"> <svg
+                            xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
+                            class="bi bi-fullscreen" viewBox="0 0 16 16">
+                            <path
+                                d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z" />
+                        </svg>
+                        <span style=" font-weight: 500;">Full screen </span>
+                    </button>
+                    <button onclick="closeFullscreen()" style="text-align: right; margin-top: 10px;" id="p1" hidden> <svg
+                        xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
+                        class="bi bi-fullscreen" viewBox="0 0 16 16">
+                        <path
+                            d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                    <span style=" font-weight: 500;">Disable Full screen </span>
+                </button>
+                </div>
                 <div class='rc-heading'>Quick Links</div>
+
                 <div class='btn-group btn-group-sm'>
                     <div class='btn-group btn-group-sm'>
                         <button class='btn btn-default dropdown-toggle rc-button-square' type='button'
@@ -291,13 +306,50 @@
     <div id='bottom-right'>
         <div id='map'></div>
         <div id='satellite-count'></div>
+
     </div>
 
 
     </div>
     <div id='top'>
         <div id='heading'>Eye Of Horus</div>
+
     </div>
 </body>
+<script>
+    /* Get the documentElement (<html>) to display the page in fullscreen */
+    var elem = document.documentElement;
+
+    /* View in fullscreen */
+    function openFullscreen() {
+            document.getElementById("p").style.display = 'none';
+            document.getElementById("p1").style.display = 'block';
+
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+            /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
+
+    /* Close fullscreen */
+    function closeFullscreen() {
+        document.getElementById("p").style.display = 'block';
+            document.getElementById("p1").style.display = 'none';
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+</script>
 
 </html>
