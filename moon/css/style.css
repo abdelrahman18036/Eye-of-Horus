@@ -2037,3 +2037,16 @@ body.page-404 {
     transform: translate(-50%, -50%); }
 
 /*# sourceMappingURL=style.css.map */
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
