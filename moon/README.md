@@ -1,2 +1,2 @@
-# E.D.I.T.H.
-E.D.I.T.H.
+# Eye of Horus.
+Eye of Horus.
